@@ -97,7 +97,41 @@ func arithmeticMean(numbers: Double...) -> Double {
 print(arithmeticMean(1,2,3,4,5))
 
 
-//常量参数和变量参数
+//常量参数和变量参数  swift 取消了变量参数语法 可以将参数赋值为变量来解决
+
+//输入-输出参数
+func swapTwoInts(inout a: Int, inout b: Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+var swapA = 1
+var swapB = 5
+swapTwoInts(&swapA, b: &swapB)
+print("swapA = \(swapA) swapB = \(swapB)")
+
+//函数类型  (Int, Int)->Int
+func addTwoInts(a: Int, b: Int) -> Int {
+    return a + b
+}
+
+//使用函数类型
+var mathFunction: (Int, Int) -> Int = addTwoInts
+print("mathFunction = \(mathFunction(1,2))")
+
+
+//函数类型参数
+func printMathResult(mathFunction: (Int, Int) -> Int, a: Int, b:Int) {
+    print("函数类型参数：\(mathFunction(a,b))")
+}
+printMathResult(mathFunction, a: 100, b: 200)
+
+
+//函数类型的返回值  可以使用一个函数类型作为另一个函数的返回类型
+
+//嵌套函数
+
 
 
 
